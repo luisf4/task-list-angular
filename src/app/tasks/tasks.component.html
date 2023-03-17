@@ -1,0 +1,10 @@
+<p>tasks works!</p>
+
+<input type="text"[(ngModel)]="inputValue">
+<button (click)="submit()" type="button" class="btn btn-primary">Add</button>
+
+<ul>
+    <li *ngFor='let task of tasks'>
+        <h1>{{task}}<button (click)="remove(this.tasks.indexOf(this.task))" type="button" class="btn btn-danger">Remove</button></h1>
+    </li>
+</ul>
