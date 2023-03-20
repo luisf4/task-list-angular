@@ -1,6 +1,6 @@
 # TaskList
 
-##Stuff to make
+## Stuff to do
 
 + [ ] add some database 
 + [ ] finish the logic 
