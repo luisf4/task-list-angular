@@ -3,7 +3,7 @@ body {
   }
   
   .todo-container {
-    width: 60vw;
+    width: 35vw;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -61,4 +61,17 @@ body {
     padding: 10px;
     cursor: pointer;
   }
-  
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.todo-list {
+  height: 50vh;
+}
+
+.exclude-all {
+  display: flex;
+  justify-content: space-between;
+}
