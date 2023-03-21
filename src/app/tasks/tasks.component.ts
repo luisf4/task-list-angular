@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class TasksComponent {
 
 
-  tasks: string[] =['a','b','c','d'];
+  tasks: string[] =['Make bred','Buy wine','do homework','aaaah'];
 
   inputValue: string='';
   
@@ -24,3 +24,4 @@ export class TasksComponent {
     this.tasks = [];
   }
 }
+  

@@ -2,20 +2,24 @@
   <div class="task-container">
     <h1>Task List</h1>
     <div class="add-task">
-      <input [(ngModel)]="inputValue" type="text" id="new-task" placeholder="Add new task">
+      <input class="inputFild" [(ngModel)]="inputValue" type="text" id="new-task" placeholder="Add new task">
       <button (click)="add()" type="button" class="btn btn-primary">
         Add
       </button>
+      
     </div>
     <div class="tasks-list">
       <div class="tasks" *ngFor="let task of tasks">
-        <h3>{{task}}</h3>
-        <button (click)="remove(task)" type="button" class="btn btn-danger">Delete</button>
+        <div class="task-item">
+          <p>{{task}}</p>
+          <button (click)="remove(task)" type="button" class="btn btn-danger">
+            Remove</button>
+        </div>
       </div>
     </div>
     <div class="exclude-all">
       <p>You have {{tasks.length}} tasks left</p>
-      <button (click)="removeAll()" type="button" class="btn btn-danger">Exclude all</button>
+      <button (click)="removeAll()" type="button" class="btn btn-danger">Remove all</button>
     </div>
   </div>
 </div>
