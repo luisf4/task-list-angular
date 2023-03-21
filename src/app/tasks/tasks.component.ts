@@ -13,11 +13,14 @@ export class TasksComponent {
   inputValue: string='';
   
 
-  submit() {
+  add() {
     this.tasks.unshift(this.inputValue);
-    console.log(this.inputValue);
   }
-  remove(index: number) {
-    this.tasks.splice(index,1);
+  remove(index: string) {
+    const item = this.tasks.indexOf(index);
+    this.tasks.splice(item,1);
+  }
+  removeAll() {
+    this.tasks = [];
   }
 }

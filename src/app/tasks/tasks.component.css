@@ -2,7 +2,7 @@ body {
     background-color: #f8f9fa;
   }
   
-  .todo-container {
+  .task-container {
     width: 35vw;
     margin: 0 auto;
     padding: 20px;
@@ -11,7 +11,7 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,.2);
   }
   
-  .todo-item {
+  .task-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;    
@@ -20,18 +20,18 @@ body {
     background-color: #f2f2f2;
   }
   
-  .todo-item input[type="checkbox"] {
+  .task-item input[type="checkbox"] {
     margin-right: 10px;
   }
   
-  .todo-item input[type="text"] {
+  .task-item input[type="text"] {
     border: none;
     background-color: transparent;
     flex: 1;
     margin-right: 10px;
   }
   
-  .todo-item button {
+  .task-item button {
     border: none;
     background-color: transparent;
     color: #dc3545;
@@ -39,13 +39,13 @@ body {
     cursor: pointer;
   }
   
-  .add-todo {
+  .add-task {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
   }
   
-  .add-todo input[type="text"] {
+  .add-task input[type="text"] {
     flex: 1;
     border: none;
     border-radius: 5px;
@@ -53,7 +53,7 @@ body {
     margin-right: 10px;
   }
   
-  .add-todo button {
+  .add-task button {
     border: none;
     border-radius: 5px;
     background-color: #007bff;
@@ -67,11 +67,22 @@ body {
   align-items: center;
 
 }
-.todo-list {
+.task-list {
   height: 50vh;
 }
 
 .exclude-all {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tasks-list {
+  overflow: scroll;
+  max-height: 500px;
+  min-height: 500px
+}
+.tasks {
+  padding: 10px;
   display: flex;
   justify-content: space-between;
 }
