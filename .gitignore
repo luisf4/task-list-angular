@@ -1,5 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+
+# API
+/src/api/node_modules
+/src/api/firebaseConfig.ts
+
 # Compiled output
 /dist
 /tmp
@@ -8,7 +13,6 @@
 
 # Node
 /node_modules
-/src/api/node_modules
 npm-debug.log
 yarn-error.log
 
