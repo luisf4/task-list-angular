@@ -2,8 +2,11 @@
 
 ## Stuff to do
 
++ [x] finish the basic logic 
++ [x] make it look nice 
++ [ ] create an api
++ [ ] add login
++ [ ] finish the api
 + [ ] add some database 
-+ [ ] finish the logic 
-+ [ ] make it look nice 
 + [ ] put on aws, azure, duno...
-+ [ ] put on CV
++ [ ] put on portfolio
