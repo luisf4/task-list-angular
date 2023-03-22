@@ -16,6 +16,10 @@ app.get('/batata', (req, res) =>{
   }) 
 });
 
+app.post('/api/data', (req, res) => {
+  // handle POST request for data
+});
+
 
 // Starts the server
 app.listen(
