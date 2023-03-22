@@ -10,3 +10,7 @@
 + [ ] add some database 
 + [ ] put on aws, azure, duno...
 + [ ] put on portfolio
+
+
+
+AAAAAAAAAHHHWWWWWWWWWW
