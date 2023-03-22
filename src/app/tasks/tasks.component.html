@@ -4,7 +4,8 @@
     <div class="add-task">
       <input class="inputFild" [(ngModel)]="inputValue" type="text" id="new-task" placeholder="Add new task">
       <button (click)="add()" type="button" class="btn btn-primary">
-        Add
+        <span class="btn-text">Add</span>
+        <span class="btn-icon"><i class="fa-solid fa-square-plus"></i></span>
       </button>
       
     </div>
@@ -13,7 +14,7 @@
         <div class="task-item">
           <p>{{task}}</p>
           <button (click)="remove(task)" type="button" class="btn btn-danger">
-            Remove</button>
+            <i class="fa-solid fa-trash"></i></button>
         </div>
       </div>
     </div>
