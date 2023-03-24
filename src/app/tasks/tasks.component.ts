@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tasks',
@@ -8,11 +9,11 @@ import { Component } from '@angular/core';
 export class TasksComponent {
 
 
-  tasks: string[] =['Make bred','Buy wine','do homework','aaaah'];
-
+  tasks: any[] = [];
   inputValue: string='';
   
 
+  
   add() {
     this.tasks.unshift(this.inputValue);
   }
