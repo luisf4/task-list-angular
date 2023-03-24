@@ -21,6 +21,10 @@ function writeTasksFile(tasks) {
   fs.writeFileSync(tasksFile, JSON.stringify(tasks));
 }
 
+app.get('/api/tasks', (req,res) => {
+  return res.json(readTasksFile());
+})
+
 // Create a new task
 app.post('/api/tasks', (req, res) => {
   const { name } = req.body;
