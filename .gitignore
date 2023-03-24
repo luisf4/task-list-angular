@@ -3,7 +3,7 @@
 
 # API
 /src/api/node_modules
-/src/api/firebaseConfig.ts
+/src/api/firebase.json
 
 # Compiled output
 /dist
