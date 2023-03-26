@@ -110,3 +110,8 @@ body {
   width: 100px;
   justify-content: space-between;
 }
+
+.spanTask {
+  margin-left: 5px;
+ 
+}

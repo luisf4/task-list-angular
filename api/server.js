@@ -4,8 +4,8 @@ const path = require('path');
 
 // Set express
 const app = express();
-// Set json as default 
 app.use(express.json());
+
 
 // Defines the path to the json file 
 const tasksFile = path.join(__dirname, 'data/tasks.json');
@@ -21,9 +21,12 @@ function writeTasksFile(tasks) {
   fs.writeFileSync(tasksFile, JSON.stringify(tasks));
 }
 
+
+// Get the tasks and return a Json
 app.get('/api/tasks', (req, res) => {
   return res.json(readTasksFile());
 })
+
 
 // Create a new task
 app.post('/api/tasks', (req, res) => {
@@ -41,10 +44,12 @@ app.post('/api/tasks', (req, res) => {
   res.json(newTask);
 });
 
+
 // Update an existing task
 app.put('/api/tasks/:id', (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
+  const { isDone } = req.body;
 
   if (!name) {
     return res.status(400).json({ error: 'Name is required.' });
@@ -57,10 +62,12 @@ app.put('/api/tasks/:id', (req, res) => {
     return res.status(404).json({ error: 'Task not found.' });
   }
 
+  tasks[taskIndex].isDone = isDone;
   tasks[taskIndex].name = name;
   writeTasksFile(tasks);
   res.json(tasks[taskIndex]);
 });
+
 
 // Delete a task
 app.delete('/api/tasks/:id', (req, res) => {
@@ -75,18 +82,17 @@ app.delete('/api/tasks/:id', (req, res) => {
 
   tasks.splice(taskIndex, 1);
   writeTasksFile(tasks);
-
   res.json({ message: 'Task deleted successfully.' });
 });
 
+
 // Delete ALL TASKS
 app.delete('/api/tasks', (req, res) => {
-
   const tasks = readTasksFile();
   writeTasksFile([]);
-
   res.json({ message: 'Tasks deleted successfully.' });
 });
+
 
 // Start the server
 const PORT = process.env.PORT || 3000;

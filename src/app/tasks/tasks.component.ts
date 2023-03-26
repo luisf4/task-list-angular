@@ -17,6 +17,13 @@ export class TasksComponent implements OnInit {
     this.getTasks();
   }
 
+  // Function that see if the checkbox was changed if it was it will flip the boolean valeu of "isDone" thing 
+  onCheckboxChange(task: any) {
+    task.isDone = !task.isDone;
+    this.updateTask(task);
+  }
+  
+  // Get all tasks, TRY TO NOT RE USE IT 
   getTasks() {
     this.tasksService.getAllTasks().subscribe(
       (data) => {
@@ -28,6 +35,7 @@ export class TasksComponent implements OnInit {
     );
   }
 
+  // Create a task with the valeu of the input fild given by the user
   addTask() {
     if (!this.inputValue.trim()) {
       return;
@@ -43,8 +51,9 @@ export class TasksComponent implements OnInit {
     );
   }
 
+  // Updates the task, used on edditing the valeu of the name of the task and on checkbox check and uncheck
   updateTask(task: any) {
-    this.tasksService.updateTask(task.id, task.name).subscribe(
+    this.tasksService.updateTask(task.id, task.name, task.isDone).subscribe(
       (data) => {
         task.editing = false;
       },
@@ -54,6 +63,7 @@ export class TasksComponent implements OnInit {
     );
   }
 
+  // Just delete the task by ID
   deleteTask(task: any) {
     this.tasksService.deleteTask(task.id).subscribe(
       (data) => {
@@ -65,6 +75,8 @@ export class TasksComponent implements OnInit {
       }
     );
   }
+
+  // Delete all tasks 
   deleteAllTasks(){
     this.tasksService.deleteAllTasks().subscribe(
       (data) =>  {
