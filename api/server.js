@@ -21,7 +21,7 @@ function writeTasksFile(tasks) {
   fs.writeFileSync(tasksFile, JSON.stringify(tasks));
 }
 
-app.get('/api/tasks', (req,res) => {
+app.get('/api/tasks', (req, res) => {
   return res.json(readTasksFile());
 })
 
@@ -34,7 +34,7 @@ app.post('/api/tasks', (req, res) => {
   }
 
   const tasks = readTasksFile();
-  const newTask = { id: Date.now().toString(), name };
+  const newTask = { id: Date.now().toString(), name, isEditing: false, isDone: false  };
   tasks.push(newTask);
   writeTasksFile(tasks);
 
@@ -59,7 +59,6 @@ app.put('/api/tasks/:id', (req, res) => {
 
   tasks[taskIndex].name = name;
   writeTasksFile(tasks);
-
   res.json(tasks[taskIndex]);
 });
 
@@ -78,6 +77,15 @@ app.delete('/api/tasks/:id', (req, res) => {
   writeTasksFile(tasks);
 
   res.json({ message: 'Task deleted successfully.' });
+});
+
+// Delete ALL TASKS
+app.delete('/api/tasks', (req, res) => {
+
+  const tasks = readTasksFile();
+  writeTasksFile([]);
+
+  res.json({ message: 'Tasks deleted successfully.' });
 });
 
 // Start the server

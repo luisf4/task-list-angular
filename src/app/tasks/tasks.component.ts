@@ -1,28 +1,78 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css']
 })
-export class TasksComponent {
-
-
+export class TasksComponent implements OnInit {
   tasks: any[] = [];
-  inputValue: string='';
-  
 
-  
-  add() {
-    this.tasks.unshift(this.inputValue);
+  inputValue: string = '';
+
+  constructor(private tasksService: TasksService) { }
+
+  ngOnInit() {
+    this.getTasks();
   }
-  remove(index: string) {
-    const item = this.tasks.indexOf(index);
-    this.tasks.splice(item,1);
+
+  getTasks() {
+    this.tasksService.getAllTasks().subscribe(
+      (data) => {
+        this.tasks = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-  removeAll() {
-    this.tasks = [];
+
+  addTask() {
+    if (!this.inputValue.trim()) {
+      return;
+    }
+    this.tasksService.addTask(this.inputValue).subscribe(
+      (data) => {
+        this.tasks.unshift(data);
+        this.inputValue = '';
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  updateTask(task: any) {
+    this.tasksService.updateTask(task.id, task.name).subscribe(
+      (data) => {
+        task.editing = false;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteTask(task: any) {
+    this.tasksService.deleteTask(task.id).subscribe(
+      (data) => {
+        const index = this.tasks.indexOf(task);
+        this.tasks.splice(index, 1);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  deleteAllTasks(){
+    this.tasksService.deleteAllTasks().subscribe(
+      (data) =>  {
+        this.tasks = [];
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
   }
 }
-  
