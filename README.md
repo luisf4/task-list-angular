@@ -1,6 +1,8 @@
 # Task List App with Angular and REST API
 
 This is a simple task list application built with Angular and using a REST API to store and retrieve tasks with json.
+![image](https://user-images.githubusercontent.com/97737113/227818875-cb66e93c-3b7b-42b4-8d97-cfc16fda1379.png)
+
 
 ## Requirements
 
